@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jidi.ssm.mapper.UserMapper" >
+
+    <select id="selectUserByName" parameterType="string"  resultType="com.jidi.ssm.pojo.User">
+       SELECT * FROM user WHERE name=#{value}
+    </select>
+
+    <select id="selectPasswordByName" parameterType="string" resultType="string">
+        <!-- SELECT * FROM USER WHERE id=#{value} -->
+        SELECT password FROM user WHERE name=#{value}
+    </select>
+
+    <insert id="insertUser" parameterType="com.jidi.ssm.pojo.User">
+        INSERT INTO user(name,password,email) VALUES(#{name},#{password},#{email})
+    </insert>
+
+    <update id="updateUser" parameterType="com.jidi.ssm.pojo.User">
+        UPDATE user SET name=#{name}, password=#{password}, email=#{email}, name=#{name},WHERE ID=#{ID}
+
+    </update>
+</mapper>
